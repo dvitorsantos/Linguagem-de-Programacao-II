@@ -9,12 +9,15 @@ public class Conta {
         this.senha = senha;
     }
 
-    public void depositar(float valor) {
+    public boolean depositar(float valor) {
+        if (valor < 0) return false;
+
         this.saldo += valor;
+        return true;
     }
 
     public boolean sacar(float valor, int senha) {
-        if (this.senha != senha || this.saldo < valor) return false;
+        if (this.saldo < valor || this.senha != senha) return false;
 
         this.saldo -= valor;
         return true;
