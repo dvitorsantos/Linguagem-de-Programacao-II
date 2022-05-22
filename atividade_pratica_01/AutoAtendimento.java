@@ -1,13 +1,11 @@
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
 public class AutoAtendimento {
-    private Banco banco;
+    final private Banco banco = new Banco("Banco do Brasil", 1, 1234);
 
     public static void main(String[] args) {
-        Banco banco = new Banco("Banco do Brasil", 1, 1234);
-        AutoAtendimento autoAtendimento = new AutoAtendimento(banco);
+        AutoAtendimento autoAtendimento = new AutoAtendimento();
 
         boolean exit = false;
         boolean exitInside = false;
@@ -26,8 +24,8 @@ public class AutoAtendimento {
                     if (exitInside == true) exitInside = false;
                     while (!exitInside) {
                         autoAtendimento.menuGerente();
-                        operation = scanner.nextInt();
-                        if (operation == 1) {
+                        int operation_inside = scanner.nextInt();
+                        if (operation_inside == 1) {
                             System.out.println("Digite o nome do cliente: ");
                             String nome = scanner.next();
                             System.out.println("Digite o cpf do cliente: ");
@@ -46,7 +44,7 @@ public class AutoAtendimento {
                                 System.out.println("Erro ao cadastrar cliente!");
                             }
                         }
-                        if (operation == 2) {
+                        if (operation_inside == 2) {
                             System.out.println("Digite o cpf do cliente");
                             long cpf_remover = scanner.nextLong();
                             if (autoAtendimento.gerenteExcluirCliente(cpf_remover)) {
@@ -55,7 +53,7 @@ public class AutoAtendimento {
                                 System.out.println("Cpf inválido!");
                             }
                         }
-                        if (operation == 0) {
+                        if (operation_inside == 0) {
                             exitInside = true;
                         }
                     }
@@ -72,29 +70,40 @@ public class AutoAtendimento {
                     if (exitInside == true) exitInside = false;
                     while (!exitInside) {
                         autoAtendimento.menuCliente();
-                        operation = scanner.nextInt();
-                        if (operation == 1) {
+                        int operation_inside = scanner.nextInt();
+                        if (operation_inside == 1) {
                             System.out.println("Digite o valor para depositar: ");
                             float valor = scanner.nextFloat();
                             if (autoAtendimento.clienteDepositar(valor, numero_conta)) {
                                 System.out.println("Valor depositado!");
                             } else {
-                                System.out.println("Erro ao depositar valor!");
+                                System.out.println("Digite um número válido para depósito.");
                             }
                         }
-                        if (operation == 2) {
-                            float saldo = autoAtendimento.clienteVerificarSaldo(senha, numero_conta);
+                        if (operation_inside == 2) {
+                            System.out.println("Digite sua senha para confirmação: ");
+                            int senha_verificacao = scanner.nextInt();
+                            float saldo = autoAtendimento.clienteVerificarSaldo(senha_verificacao, numero_conta);
 
-                            System.out.println("Saldo: " + saldo);
+                            //a funcao clienteVerificarSaldo retorna -1 se senha inválida.
+                            if (saldo >= 0) {
+                                System.out.println("Saldo: " + saldo);
+                            } else {
+                                System.out.println("Senha incorreta.");
+                            }
                         }
-                        if (operation == 3) {
+                        if (operation_inside == 3) {
                             System.out.println("Digite o valor do saque: ");
                             float valor_saque = scanner.nextFloat();
-                            if (autoAtendimento.clienteSacar(valor_saque, senha, numero_conta)) {
-
+                            System.out.println("Digite sua senha para confirmação: ");
+                            int senha_verificacao = scanner.nextInt();
+                            if (autoAtendimento.clienteSacar(valor_saque, senha_verificacao, numero_conta)) {
+                                System.out.println("Retirado R$" + valor_saque);
+                            } else {
+                                System.out.println("Senha incorreta ou saldo insuficiente.");
                             }
                         }
-                        if (operation == 0) {
+                        if (operation_inside == 0) {
                             exitInside = true;
                         }
                     }
@@ -102,17 +111,17 @@ public class AutoAtendimento {
                     System.out.println("Senha inválida!");
                 }
             }
+            if (operation == 0) {
+                exit = true;
+            }
         }
 
-    }
-
-    public AutoAtendimento(Banco banco) {
-        this.banco = banco;
     }
 
     public void menuInicial() {
         System.out.println("1. Login Gerente");
         System.out.println("2. Login Cliente");
+        System.out.println("0. Sair");
     }
 
     public void menuGerente() {
@@ -129,9 +138,7 @@ public class AutoAtendimento {
     }
 
     public boolean loginCliente(int numConta, int senha) {
-        ArrayList<Cliente> clientes = this.banco.getClientes();
-
-        Iterator iterator = clientes.iterator();
+        Iterator iterator = this.banco.getClientes().iterator();
 
         while (iterator.hasNext()) {
             Cliente cliente = (Cliente) iterator.next();
@@ -170,10 +177,9 @@ public class AutoAtendimento {
         while (iterator.hasNext()) {
             Cliente cliente = (Cliente) iterator.next();
             Conta conta = cliente.getConta();
-            if (conta.getNumero() == numero_conta && conta.getSenha() == senha) {
-                conta.sacar(valor, senha);
-                return true;
-            }
+            if (conta.getNumero() == numero_conta && conta.getSenha() == senha)
+                if (conta.sacar(valor, senha))
+                    return true;
         }
 
         return false;
@@ -185,10 +191,9 @@ public class AutoAtendimento {
         while (iterator.hasNext()) {
             Cliente cliente = (Cliente) iterator.next();
             Conta conta = cliente.getConta();
-            if (conta.getNumero() == numero_conta) {
-                conta.depositar(valor);
-                return true;
-            }
+            if (conta.getNumero() == numero_conta)
+                if (conta.depositar(valor))
+                    return true;
         }
 
         return false;
@@ -206,6 +211,6 @@ public class AutoAtendimento {
             }
         }
 
-        return 0;
+        return -1;
     }
 }

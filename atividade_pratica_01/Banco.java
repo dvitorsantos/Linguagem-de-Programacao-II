@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Banco {
     private String nome;
@@ -21,14 +20,7 @@ public class Banco {
     }
 
     public void excluirCliente(long cpf) {
-        Iterator iterator = clientes.iterator();
-
-        while (iterator.hasNext()) {
-            Cliente cliente = (Cliente) iterator.next();
-            if (cliente.getCpf() == cpf) {
-                iterator.remove();
-            }
-        }
+        this.clientes.removeIf(cliente -> cliente.getCpf() == cpf);
     }
 
     public String getNome() {
