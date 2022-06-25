@@ -1,4 +1,4 @@
-package com.company;
+package Entity;
 
 public class Territorio {
     private String nome;
@@ -65,8 +65,8 @@ public class Territorio {
         this.idh = idh;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "{" +
                 "nome='" + nome + '\'' +
                 ", sigla='" + sigla + '\'' +

@@ -1,10 +1,12 @@
-package com.company;
+package Entity;
 
-public class Estado extends Territorio{
+public class Estado extends Territorio {
     private Estado estadoSimilar;
+    private String capital;
 
-    public Estado(String nome, String sigla, double area, int populacao, float pib, float idh) {
+    public Estado(String nome, String sigla, String capital, double area, int populacao, float pib, float idh) {
         super(nome, sigla, area, populacao, pib, idh);
+        this.capital = capital;
     }
 
     @Override
