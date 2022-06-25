@@ -20,6 +20,24 @@ public class Pais extends Territorio {
         this.regioes = new ArrayList<Regiao>();
     }
 
+    public void calculaPib() {
+        float novoPIB = 0;
+        for (Regiao regiao : this.getRegioes()) {
+            novoPIB += regiao.getPib();
+        }
+        novoPIB = novoPIB/ this.getRegioes().size();
+        this.setPib(novoPIB);
+    }
+
+    public void calculaIdh() {
+        float novoIdh = 0;
+        for (Regiao regiao : this.getRegioes()) {
+            novoIdh += regiao.getIdh();
+        }
+        novoIdh = novoIdh/ this.getRegioes().size();
+        this.setPib(novoIdh);
+    }
+
     public ArrayList<Regiao> getRegioes() {
         return this.regioes;
     }

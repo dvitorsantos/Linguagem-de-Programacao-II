@@ -19,6 +19,32 @@ public class Regiao extends Territorio {
         this.estados = new ArrayList<>();
     }
 
+    public void calculaPib() {
+        float novoPIB = 0;
+        for (Estado estado : this.getEstados()) {
+            novoPIB += estado.getPib();
+        }
+        novoPIB = novoPIB/ this.getEstados().size();
+        this.setPib(novoPIB);
+    }
+
+    public void calculaIdh() {
+        float novoIdh = 0;
+        for (Estado estado : this.getEstados()) {
+            novoIdh += estado.getIdh();
+        }
+        novoIdh = novoIdh/ this.getEstados().size();
+        this.setPib(novoIdh);
+    }
+
+    public ArrayList<Estado> getEstados() {
+        return estados;
+    }
+
+    public void setEstados(ArrayList<Estado> estados) {
+        this.estados = estados;
+    }
+
     public void addEstado(Estado estado) {
         this.estados.add(estado);
     }

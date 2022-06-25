@@ -78,6 +78,10 @@ public class EstadoController {
                         Estado estado = new Estado(nome, sigla, capital, area, populacao, pib, idh);
                         Regiao regiaoAtualizada = regiao;
                         regiaoAtualizada.addEstado(estado);
+                        regiaoAtualizada.setArea(regiaoAtualizada.getArea() + estado.getArea());
+                        regiaoAtualizada.setPopulacao(regiaoAtualizada.getPopulacao() + estado.getPopulacao());
+                        regiaoAtualizada.calculaPib();
+                        regiaoAtualizada.calculaIdh();
 
                         ArrayList<Regiao> regioes = pais.getRegioes();
 
@@ -85,6 +89,10 @@ public class EstadoController {
 
                         Pais paisAtualizado = pais;
                         paisAtualizado.setRegioes(regioes);
+                        paisAtualizado.setArea(paisAtualizado.getArea() + regiaoAtualizada.getArea());
+                        paisAtualizado.setPopulacao(paisAtualizado.getPopulacao() + regiaoAtualizada.getPopulacao());
+                        paisAtualizado.calculaPib();
+                        paisAtualizado.calculaIdh();
 
                         paises.set(paises.indexOf(pais), paisAtualizado);
 

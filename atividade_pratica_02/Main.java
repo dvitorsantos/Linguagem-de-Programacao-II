@@ -10,9 +10,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Estado> estados = new ArrayList<Estado>();
-        ArrayList<Pais> paises = new ArrayList<Pais>();
-        ArrayList<Regiao> regioes = new ArrayList<Regiao>();
+        ArrayList<Pais> paises = new ArrayList<>();
 
         MenuController menu = new MenuController();
         RegiaoController regiaoController = new RegiaoController();
@@ -43,7 +41,12 @@ public class Main {
                     break;
                 case 3:
                     paises = estadoController.cadastraEstado(paises);
+                    for (Pais paisE : paises) {
+                        System.out.println(paisE);
+                    }
                     break;
+                case 0:
+                    exit = true;
             }
         }
     }
