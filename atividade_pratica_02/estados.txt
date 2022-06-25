@@ -1,0 +1,28 @@
+nome; sigla; capital; regiao; area; populacao; PIB; IDH
+Acre; AC; Rio Branco; Norte; 164122.2; 707125; 4835747; 0.751
+Alagoas; AL; Maceió; Nordeste; 27767.7; 3093994; 15763636; 0.677
+Amapá; AP; Macapá; Norte; 142814.6; 648553; 5260535; 0.78
+Amazonas; AM; Manaus; Norte; 1570745.7; 3350773; 39766086; 0.78
+Bahia; BA; Salvador; Nordeste; 564692.7; 13633969; 96559993; 0.742
+Ceará; CE; Fortaleza; Nordeste; 148825.6; 8180087; 46310492; 0.723
+Distrito Federal; DF; Brasília; Centro-Oeste; 5822.1; 2469489; 89630682; 0.874
+Espírito Santo; ES; Vitória; Sudeste; 46077.5; 3392775; 52782914; 0.802
+Goiás; GO; Goiânia; Centro-Oeste; 340086.7; 5849105; 57091081; 0.8
+Maranhão; MA; São Luís; Nordeste; 331983.3; 6424340; 28621860; 0.683
+Mato Grosso; MT; Cuiabá; Centro-Oeste; 903357.9; 3033991; 35284137; 0.796
+Mato Grosso do Sul; MS; Campo Grande; Centro-Oeste; 357125.0; 2404256; 24355772; 0.802
+Minas Gerais; MG; Belo Horizonte; Sudeste; 586528.3; 19159260; 214814905; 0.8
+Pará; PA; Belém; Norte; 1247689.5; 7443904; 44376461; 0.755
+Paraíba; PB; João Pessoa; Nordeste; 56439.8; 3753633; 19953193; 0.718
+Paraná; PR; Curitiba; Sul; 199314.9; 10266737; 136681933; 0.82
+Pernambuco; PE; Recife; Nordeste; 98311.6; 8541250; 55505760; 0.718
+Piauí; PI; Teresina; Nordeste; 251529.2; 3086448; 12790892; 0.703
+Rio de Janeiro; RJ; Rio de Janeiro; Sudeste; 43696.1; 15180636; 275363060; 0.832
+Rio Grande do Norte; RN; Natal; Nordeste; 52796.8; 3121451; 20557263; 0.738
+Rio Grande do Sul; RS; Porto Alegre; Sul; 281748.5; 10576758; 156883171; 0.832
+Rondônia; RO; Porto Velho; Norte; 237576.2; 1535625; 13110169; 0.776
+Roraima; RR; Boa Vista; Norte; 224299.0; 425398; 3660611; 0.75
+Santa Catarina; SC; Florianópolis; Sul; 95346.2; 6178603; 93193324; 0.84
+São Paulo; SP; São Paulo; Sudeste; 248209.4; 39924091; 802552824; 0.833
+Sergipe; SE; Aracaju; Nordeste; 21910.3; 2036277; 15126169; 0.742
+Tocantins; TO; Palmas; Norte; 277620.9; 1373551; 9607624; 0.756
