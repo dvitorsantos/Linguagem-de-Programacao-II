@@ -1,9 +1,11 @@
 package Controller;
 
+import Entity.Estado;
 import Entity.Pais;
 import Entity.Regiao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class RegiaoController {
@@ -14,30 +16,76 @@ public class RegiaoController {
         System.out.println("Digite a sigla da regiao");
         String siglaRegiao = scanner.next();
         System.out.println("Digite a sigla do pais referente");
-        String siglaPaisReferente = scanner.next();
+        String siglaPais = scanner.next();
 
         Regiao regiao = new Regiao(nomeRegiao, siglaRegiao);
 
         regiao.getInformacao();
 
-        int index = 0;
-        int indexOfPais = -1;
-        for (Pais paisRefente : paises) {
-            if (paisRefente.getSigla().equals(siglaPaisReferente)) {
-                indexOfPais = index;
-            } else {
-                index++;
+        return this.save(paises, regiao, siglaPais);
+    }
+
+    public ArrayList<Pais> save(ArrayList<Pais> paises, Regiao regiao, String siglaPais) {
+        Iterator iteratorPaises = paises.iterator();
+
+        while (iteratorPaises.hasNext()) {
+            Pais pais = (Pais) iteratorPaises.next();
+
+            if (siglaPais.equals(pais.getSigla())) {
+                pais.addRegiao(regiao);
+                paises.set(paises.indexOf(pais), pais);
             }
         }
 
-        if (indexOfPais >= 0) {
-            Pais pais = paises.get(index);
-            pais.addRegiao(regiao);
-            paises.set(index, pais);
-        } else {
-            System.out.println("Pais não encontrado. Cadastre primeiramente o pais.");
+        return paises;
+    }
+
+    public Regiao buscarRegiao(ArrayList<Pais> paises) {
+        System.out.println("Digite a sigla da regiao: ");
+        Scanner scanner = new Scanner(System.in);
+
+        String sigla = scanner.next();
+
+        return this.get(paises, sigla);
+    }
+
+    public Regiao get(ArrayList<Pais> paises, String sigla) {
+        Iterator iteratorPaises = paises.iterator();
+
+        while (iteratorPaises.hasNext()) {
+            Pais pais = (Pais) iteratorPaises.next();
+
+            Iterator iteratorRegioes = pais.getRegioes().iterator();
+
+            while (iteratorRegioes.hasNext()) {
+                Regiao regiao = (Regiao) iteratorRegioes.next();
+
+                if (sigla.equals(regiao.getSigla())) {
+                    return regiao;
+                }
+            }
         }
 
-        return paises;
+        return null;
+    }
+
+    public Regiao getByName(ArrayList<Pais> paises, String nome) {
+        Iterator iteratorPaises = paises.iterator();
+
+        while (iteratorPaises.hasNext()) {
+            Pais pais = (Pais) iteratorPaises.next();
+
+            Iterator iteratorRegioes = pais.getRegioes().iterator();
+
+            while (iteratorRegioes.hasNext()) {
+                Regiao regiao = (Regiao) iteratorRegioes.next();
+
+                if (nome.equals(regiao.getNome())) {
+                    return regiao;
+                }
+            }
+        }
+
+        return null;
     }
 }

@@ -10,20 +10,23 @@ public class Estado extends Territorio {
     }
 
     @Override
+    public String getInformacao() {
+        if (this.estadoSimilar != null) {
+            return super.getInformacao();
+        } else {
+            return "INFORMACOES DO ESTADO:\n" +
+                    super.toString() +
+                    "\nestado similar: vazio";
+        }
+
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + "\n{" +
-                "estadoSimilar=" + estadoSimilar +
-                '}';
-    }
+        return  "INFORMACOES DO ESTADO:\n" +
+                super.toString() +
+                "estado similar: " + this.estadoSimilar.getInformacao();
 
-    @Override
-    public float getPibPerCapita() {
-        return this.getPib() / this.getPopulacao();
-    }
-
-    @Override
-    public double getDensidade() {
-        return this.getPopulacao() / this.getArea();
     }
 
     public void definirEstadoSimilar() {

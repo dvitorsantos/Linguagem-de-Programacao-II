@@ -67,14 +67,14 @@ public class Territorio {
 
     @Override
     public String toString() {
-        return "{" +
-                "nome='" + nome + '\'' +
-                ", sigla='" + sigla + '\'' +
-                ", area=" + area +
-                ", populacao=" + populacao +
-                ", pib=" + pib +
-                ", idh=" + idh +
-                '}';
+        return  "nome: " + nome +
+                "\nsigla: " + sigla +
+                "\narea: " + area +
+                "\npopulacao: " + populacao +
+                "\npib: " + pib +
+                "\nidh: " + idh +
+                "\npib per capita: " + this.getPibPerCapita() +
+                "\ndensidade: " + this.getDensidade();
     }
 
     //implementar

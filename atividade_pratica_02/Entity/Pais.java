@@ -35,7 +35,7 @@ public class Pais extends Territorio {
             novoIdh += regiao.getIdh();
         }
         novoIdh = novoIdh/ this.getRegioes().size();
-        this.setPib(novoIdh);
+        this.setIdh(novoIdh);
     }
 
     public ArrayList<Regiao> getRegioes() {
@@ -52,8 +52,7 @@ public class Pais extends Territorio {
 
     @Override
     public String toString() {
-        return super.toString() + "\n{" +
-                "regioes=" + regioes +
-                '}';
+        return "INFORMACOES DO PAIS:\n" +
+                super.toString();
     }
 }
