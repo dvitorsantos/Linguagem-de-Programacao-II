@@ -1,4 +1,5 @@
 import Controller.*;
+import Database.Database;
 import Entity.Estado;
 import Entity.Pais;
 import Entity.Regiao;
@@ -10,12 +11,15 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Pais> paises = new ArrayList<>();
 
+        Database database = new Database();
+
         MenuController menu = new MenuController();
         MainController mainController = new MainController();
         RegiaoController regiaoController = new RegiaoController();
         EstadoController estadoController = new EstadoController();
         PaisController paisController = new PaisController();
 
+        Scanner scanner = new Scanner(System.in);
 
         boolean exit = false;
 
@@ -24,10 +28,30 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    paises = paisController.cadastraPais(paises);
+                    System.out.println("Digite o nome do pais");
+                    String nomePais = scanner.next();
+                    System.out.println("Digite a sigla do pais");
+                    String siglaPais = scanner.next();
+
+                    if (database.save(new Pais(nomePais, siglaPais))) {
+                        System.out.println("Salvo com sucesso.");
+                    } else {
+                        System.out.println("Erro ao salvar.");
+                    }
                     break;
                 case 2:
-                    paises = regiaoController.cadastrarRegiao(paises);
+                    System.out.println("Digite o nome da regiao");
+                    String nomeRegiao = scanner.next();
+                    System.out.println("Digite a sigla da regiao");
+                    String siglaRegiao = scanner.next();
+                    System.out.println("Digite a sigla do pais referente");
+                    String siglaPaisRegiao = scanner.next();
+
+                    if (database.save(new Regiao(nomeRegiao, siglaRegiao), siglaPaisRegiao)) {
+                        System.out.println("Salvo com sucesso.");
+                    } else {
+                        System.out.println("Erro ao salvar.");
+                    }
                     break;
                 case 3:
                     paises = estadoController.cadastraEstado(paises);

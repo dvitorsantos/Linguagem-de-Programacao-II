@@ -115,6 +115,12 @@ public class EstadoController {
 
         Iterator iteratorPaises = paises.iterator();
 
+        return this.get(paises, sigla);
+    }
+
+    public Estado get(ArrayList<Pais> paises, String sigla) {
+        Iterator iteratorPaises = paises.iterator();
+
         while (iteratorPaises.hasNext()) {
             Pais pais = (Pais) iteratorPaises.next();
 
