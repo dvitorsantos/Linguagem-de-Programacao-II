@@ -31,8 +31,9 @@ public class EstadoModel {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-            while ((bufferedReader.readLine()) != null){
-                stringBuilder.append(bufferedReader.readLine());
+            String line = bufferedReader.readLine();
+            while ((line = bufferedReader.readLine()) != null){
+                stringBuilder.append(line);
                 stringBuilder.append("|");
             }
             bufferedReader.close();

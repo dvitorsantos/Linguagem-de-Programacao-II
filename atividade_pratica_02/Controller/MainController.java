@@ -16,8 +16,6 @@ public class MainController {
 
         StringTokenizer estadosString = new StringTokenizer(data, "|");
 
-        System.out.println(data);
-
         RegiaoController regiaoController = new RegiaoController();
         PaisController paisController = new PaisController();
         EstadoController estadoController = new EstadoController();

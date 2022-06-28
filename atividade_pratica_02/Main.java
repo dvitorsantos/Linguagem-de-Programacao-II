@@ -12,6 +12,7 @@ public class Main {
 
         MenuController menu = new MenuController();
         MainController mainController = new MainController();
+
         RegiaoController regiaoController = new RegiaoController();
         EstadoController estadoController = new EstadoController();
         PaisController paisController = new PaisController();
@@ -46,6 +47,7 @@ public class Main {
                     break;
                 case 6:
                     Regiao regiao = regiaoController.buscarRegiao(paises);
+
                     if (regiao != null) {
                         System.out.println(regiao.getInformacao());
                     } else {
@@ -54,6 +56,7 @@ public class Main {
                     break;
                 case 7:
                     Pais pais = paisController.buscarPais(paises);
+
                     if (pais != null) {
                         System.out.println(pais.getInformacao());
                     } else {
@@ -61,7 +64,6 @@ public class Main {
                     }
                     break;
                 case 0:
-
                     exit = true;
                     break;
             }
