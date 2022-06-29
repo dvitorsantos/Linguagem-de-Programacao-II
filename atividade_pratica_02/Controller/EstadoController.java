@@ -180,4 +180,41 @@ public class EstadoController {
 
         return paises;
     }
+
+    public ArrayList<Pais> definirEstadosSimilares(ArrayList<Pais> paises) {
+        for (int i = 0; i < paises.size(); i++) {
+            for (int j = 0; j < paises.get(i).getRegioes().size(); j++) {
+                for (int k = 0; k < paises.get(i).getRegioes().get(j).getEstados().size(); k++) {
+                    Estado estado1 = paises.get(i).getRegioes().get(j).getEstados().get(k);
+                    for (int l = 0; l < paises.size(); l++) {
+                        for (int m = 0; m < paises.get(l).getRegioes().size(); m++) {
+                            for (int n = 0; n < paises.get(l).getRegioes().get(m).getEstados().size(); n++) {
+                                Estado estado2 = paises.get(l).getRegioes().get(m).getEstados().get(n);
+
+                                if (!estado1.equals(estado2)) {
+                                    if (estado1.getEstadoSimilar() == null) {
+                                        estado1.definirEstadoSimilar(estado2);
+                                    } else {
+                                        if (calcularDistanciaEuclidiana(estado1, estado2) < calcularDistanciaEuclidiana(estado1, estado1.getEstadoSimilar())) {
+                                            estado1.definirEstadoSimilar(estado2);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    paises.get(i).getRegioes().get(j).getEstados().set(k, estado1);
+                    System.out.println(paises.get(i).getRegioes().get(j).getEstados().get(k).getNome() + " | " + paises.get(i).getRegioes().get(j).getEstados().get(k).getEstadoSimilar().getNome());
+                }
+            }
+        }
+
+        return paises;
+    }
+    public double calcularDistanciaEuclidiana(Estado estado1, Estado estado2) {
+        return (Math.sqrt(
+                Math.pow(estado1.getIdh() - estado2.getIdh(), 2) +
+                Math.pow(estado1.getPib() - estado2.getPib(), 2) +
+                Math.pow(estado1.getDensidade() - estado2.getDensidade(), 2)));
+    }
 }

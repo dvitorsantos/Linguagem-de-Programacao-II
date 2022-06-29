@@ -25,11 +25,23 @@ public class Estado extends Territorio {
     public String toString() {
         return  "INFORMACOES DO ESTADO:\n" +
                 super.toString() +
-                "estado similar: " + this.estadoSimilar.getInformacao();
+                "\nEstado similar: " + this.estadoSimilar.getNome();
 
     }
 
-    public void definirEstadoSimilar() {
+    public void definirEstadoSimilar(Estado estado) {
+        this.estadoSimilar = estado;
+    }
 
+    public Estado getEstadoSimilar() {
+        return estadoSimilar;
+    }
+
+    public String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
     }
 }

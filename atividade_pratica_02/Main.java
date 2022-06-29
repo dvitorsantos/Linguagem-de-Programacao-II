@@ -35,6 +35,8 @@ public class Main {
                     break;
                 case 4:
                     paises = mainController.carregarArquivo(paises);
+                    estadoController.definirEstadosSimilares(paises);
+
                     break;
                 case 5:
                     Estado estado = estadoController.buscarEstado(paises);
@@ -65,6 +67,9 @@ public class Main {
                     break;
                 case 0:
                     exit = true;
+                    break;
+                default:
+                    System.out.println("Opção inválida");
                     break;
             }
         }
