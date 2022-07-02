@@ -10,18 +10,16 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Pais> paises = new ArrayList<>();
 
-        MenuController menu = new MenuController();
         MainController mainController = new MainController();
 
         RegiaoController regiaoController = new RegiaoController();
         EstadoController estadoController = new EstadoController();
         PaisController paisController = new PaisController();
 
-
         boolean exit = false;
 
         while (!exit) {
-            int opcao = menu.getOpcao();
+            int opcao = MainController.getOpcao();
 
             switch (opcao) {
                 case 1:
@@ -32,10 +30,12 @@ public class Main {
                     break;
                 case 3:
                     paises = estadoController.cadastraEstado(paises);
+                    estadoController.definirEstadosSimilares(paises);
                     break;
                 case 4:
                     paises = mainController.carregarArquivo(paises);
                     estadoController.definirEstadosSimilares(paises);
+                    System.out.println("Arquivo carregado com sucesso!");
 
                     break;
                 case 5:
@@ -69,7 +69,7 @@ public class Main {
                     exit = true;
                     break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.err.println("Opcao invalida");
                     break;
             }
         }

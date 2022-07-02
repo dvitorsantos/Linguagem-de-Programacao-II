@@ -1,6 +1,7 @@
 package Controller;
 
 import Entity.Pais;
+import Helpers.Keyboard;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,18 +9,13 @@ import java.util.Scanner;
 
 public class PaisController {
     public ArrayList<Pais> cadastraPais(ArrayList<Pais> paises) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Digite o nome do pais");
-        String nomePais = scanner.next();
-        System.out.println("Digite a sigla do pais");
-        String siglaPais = scanner.next();
+        String nomePais = Keyboard.forceGetString("Digite o nome do pais");
+        String siglaPais = Keyboard.forceGetString("Digite a sigla do pais");
 
         Pais pais = new Pais(nomePais, siglaPais);
 
         return this.save(paises, pais);
     }
-
     public Pais buscarPais(ArrayList<Pais> paises) {
         System.out.println("Digite a sigla do pais: ");
         Scanner scanner = new Scanner(System.in);

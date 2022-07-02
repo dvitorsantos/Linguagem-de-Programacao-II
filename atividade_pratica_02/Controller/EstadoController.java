@@ -3,6 +3,7 @@ package Controller;
 import Entity.Estado;
 import Entity.Pais;
 import Entity.Regiao;
+import Helpers.Keyboard;
 import Model.EstadoModel;
 
 import java.util.ArrayList;
@@ -43,32 +44,35 @@ public class EstadoController {
     }
 
     public ArrayList<Pais> cadastraEstado(ArrayList<Pais> paises) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome do Estado");
-        String nome = scanner.next();
-        System.out.println("Digite a sigla do Estado");
-        String sigla = scanner.next();
-        System.out.println("Digite o nome da capital do Estado");
-        String capital = scanner.next();
-        System.out.println("Digite o nome da regiao do Estado");
-        String nomeRegiao = scanner.next();
-        System.out.println("Digite a area do Estado");
-        double area = scanner.nextDouble();
-        System.out.println("Digite a população do Estado");
-        int populacao = scanner.nextInt();
-        System.out.println("Digite o pib do Estado");
-        float pib = scanner.nextFloat();
-        System.out.println("Digite o idh do Estado");
-        float idh = scanner.nextFloat();
-        System.out.println("Digite a sigla do pais do Estado");
-        String siglaPais = scanner.next();
+        PaisController paisController = new PaisController();
+        RegiaoController regiaoController = new RegiaoController();
+
+        String siglaPais = Keyboard.forceGetString("Digite a sigla do pais do Estado");
+        if (paisController.get(paises, siglaPais) == null) {
+            System.err.println("Erro ao cadastrar regiao: Pais nao encontrado");
+            return paises;
+        }
+
+        String siglaRegiao = Keyboard.forceGetString("Digite a sigla da regiao do Estado");
+        if (regiaoController.get(paises, siglaRegiao) == null) {
+            System.err.println("Erro ao cadastrar regiao: Regiao nao encontrada");
+            return paises;
+        }
+
+        String nome = Keyboard.forceGetString("Digite o nome do Estado");
+        String sigla = Keyboard.forceGetString("Digite a sigla do Estado");
+        String capital = Keyboard.forceGetString("Digite o nome da capital do Estado");
+        double area = Keyboard.forceGetDouble("Digite a area do Estado");
+        int populacao = Keyboard.forceGetInt("Digite a populacao do Estado");
+        float pib = Keyboard.forceGetFloat("Digite o pib do Estado");
+        float idh = Keyboard.forceGetFloat("Digite o idh do Estado");
 
         Estado estado = new Estado(nome, sigla, capital, area, populacao, pib, idh);
 
-        return this.save(paises, estado, siglaPais, nomeRegiao);
+        return this.save(paises, estado, siglaPais, siglaRegiao);
     }
 
-    public ArrayList<Pais> save(ArrayList<Pais> paises, Estado estado, String siglaPais, String nomeRegiao) {
+    public ArrayList<Pais> save(ArrayList<Pais> paises, Estado estado, String siglaPais, String siglaRegiao) {
         Iterator iteratorPaises = paises.iterator();
         while (iteratorPaises.hasNext()) {
             Pais pais = (Pais) iteratorPaises.next();
@@ -79,7 +83,7 @@ public class EstadoController {
                 while (iteratorRegioes.hasNext()) {
                     Regiao regiao = (Regiao) iteratorRegioes.next();
 
-                    if (regiao.getNome().equals(nomeRegiao)) {
+                    if (regiao.getSigla().equals(siglaRegiao)) {
                         Regiao regiaoAtualizada = regiao;
                         regiaoAtualizada.addEstado(estado);
                         regiaoAtualizada.setArea(regiaoAtualizada.getArea() + estado.getArea());
@@ -137,50 +141,6 @@ public class EstadoController {
         return null;
     }
 
-    public ArrayList<Pais> carregarArquivo(ArrayList<Pais> paises) {
-        String data = this.estadoModel.findAll();
-
-        StringTokenizer estadosString = new StringTokenizer(data, "|");
-
-        System.out.println(data);
-
-        RegiaoController regiaoController = new RegiaoController();
-        PaisController paisController = new PaisController();
-
-        while (estadosString.hasMoreElements()) {
-            StringTokenizer info = new StringTokenizer((String) estadosString.nextElement(), ";");
-
-            String nome = info.nextElement().toString();
-            String sigla = info.nextElement().toString().replaceAll("\\s","");
-            String capital = info.nextElement().toString();
-            String nomeRegiao =  info.nextElement().toString().replaceAll("\\s","");
-            double area = Double.parseDouble(info.nextElement().toString().replaceAll("\\s",""));
-            int populacao = Integer.parseInt(info.nextElement().toString().replaceAll("\\s",""));
-            float pib = Float.parseFloat(info.nextElement().toString().replaceAll("\\s",""));
-            float idh = Float.parseFloat(info.nextElement().toString().replaceAll("\\s",""));
-
-            Regiao regiao = regiaoController.getByName(paises, nomeRegiao);
-
-            if (regiao == null) {
-                regiao = new Regiao(nomeRegiao, nomeRegiao);
-
-                Pais pais = paisController.get(paises, "BRA");
-                if (pais == null) {
-                    pais = new Pais("Brasil", "BRA");
-                    paises = paisController.save(paises, pais);
-                }
-
-                paises = regiaoController.save(paises, regiao, "BRA");
-            }
-
-            Estado estado = new Estado(nome, sigla, capital, area, populacao, pib, idh);
-
-            paises = this.save(paises, estado, "BRA", nomeRegiao);
-        }
-
-        return paises;
-    }
-
     public ArrayList<Pais> definirEstadosSimilares(ArrayList<Pais> paises) {
         for (int i = 0; i < paises.size(); i++) {
             for (int j = 0; j < paises.get(i).getRegioes().size(); j++) {
@@ -204,7 +164,6 @@ public class EstadoController {
                         }
                     }
                     paises.get(i).getRegioes().get(j).getEstados().set(k, estado1);
-                    System.out.println(paises.get(i).getRegioes().get(j).getEstados().get(k).getNome() + " | " + paises.get(i).getRegioes().get(j).getEstados().get(k).getEstadoSimilar().getNome());
                 }
             }
         }

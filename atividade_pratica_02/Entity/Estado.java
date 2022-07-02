@@ -25,8 +25,18 @@ public class Estado extends Territorio {
     public String toString() {
         return  "INFORMACOES DO ESTADO:\n" +
                 super.toString() +
-                "\nEstado similar: " + this.estadoSimilar.getNome();
+                "\nEstado similar: " + this.estadoSimilarToString();
+    }
 
+    public String estadoSimilarToString() {
+        return  "\n\tnome: " + this.estadoSimilar.getNome() +
+                "\n\tsigla: " + this.estadoSimilar.getSigla() +
+                "\n\tarea: " + this.estadoSimilar.getArea() +
+                "\n\tpopulacao: " + this.estadoSimilar.getPopulacao() +
+                "\n\tpib: " + this.estadoSimilar.getPib() +
+                "\n\tidh: " + this.estadoSimilar.getIdh() +
+                "\n\tpib per capita: " + this.estadoSimilar.getPibPerCapita() +
+                "\n\tdensidade: " + this.estadoSimilar.getDensidade();
     }
 
     public void definirEstadoSimilar(Estado estado) {

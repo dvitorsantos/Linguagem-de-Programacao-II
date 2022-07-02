@@ -3,6 +3,7 @@ package Controller;
 import Entity.Estado;
 import Entity.Pais;
 import Entity.Regiao;
+import Helpers.Keyboard;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,17 +11,17 @@ import java.util.Scanner;
 
 public class RegiaoController {
     public ArrayList<Pais> cadastrarRegiao(ArrayList<Pais> paises) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome da regiao");
-        String nomeRegiao = scanner.next();
-        System.out.println("Digite a sigla da regiao");
-        String siglaRegiao = scanner.next();
-        System.out.println("Digite a sigla do pais referente");
-        String siglaPais = scanner.next();
+        String nomeRegiao = Keyboard.forceGetString("Digite o nome da regiao");
+        String siglaRegiao = Keyboard.forceGetString("Digite a sigla da regiao");
+        String siglaPais = Keyboard.forceGetString("Digite a sigla do pais referente");
+
+        PaisController paisController = new PaisController();
+
+        if (paisController.get(paises, siglaPais) == null) {
+            System.err.println("Erro ao cadastrar regiao: Pais nao encontrado");
+        }
 
         Regiao regiao = new Regiao(nomeRegiao, siglaRegiao);
-
-        regiao.getInformacao();
 
         return this.save(paises, regiao, siglaPais);
     }
@@ -39,7 +40,6 @@ public class RegiaoController {
 
         return paises;
     }
-
     public Regiao buscarRegiao(ArrayList<Pais> paises) {
         System.out.println("Digite a sigla da regiao: ");
         Scanner scanner = new Scanner(System.in);
