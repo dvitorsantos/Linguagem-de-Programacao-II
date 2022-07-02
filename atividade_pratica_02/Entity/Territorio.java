@@ -1,4 +1,4 @@
-package com.company;
+package Entity;
 
 public class Territorio {
     private String nome;
@@ -65,16 +65,16 @@ public class Territorio {
         this.idh = idh;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
-        return "{" +
-                "nome='" + nome + '\'' +
-                ", sigla='" + sigla + '\'' +
-                ", area=" + area +
-                ", populacao=" + populacao +
-                ", pib=" + pib +
-                ", idh=" + idh +
-                '}';
+    @Override
+    public String toString() {
+        return  "nome: " + nome +
+                "\nsigla: " + sigla +
+                "\narea: " + area +
+                "\npopulacao: " + populacao +
+                "\npib: " + pib +
+                "\nidh: " + idh +
+                "\npib per capita: " + this.getPibPerCapita() +
+                "\ndensidade: " + this.getDensidade();
     }
 
     //implementar
