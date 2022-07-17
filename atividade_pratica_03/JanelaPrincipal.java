@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class JanelaPrincipal extends JFrame implements ActionListener {
     PainelCadastro painelCadastro;
@@ -12,14 +13,14 @@ public class JanelaPrincipal extends JFrame implements ActionListener {
     JPanel painelPrincipal;
     public JanelaPrincipal() {
         setTitle("Janela Principal");
-        setSize(1280, 720);
+        setSize(1280, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setVisible(true);
 
         this.painelPrincipal = new JPanel();
 
-        this.painelBanner = new PainelBanner("./src/images/banner2.jpg");
+        this.painelBanner = new PainelBanner("src/images/banner.jpg");
         this.painelCadastro = new PainelCadastro(100, 50);
         this.painelListagem = new PainelListagem();
 
@@ -40,7 +41,7 @@ public class JanelaPrincipal extends JFrame implements ActionListener {
         JMenuBar menuBar = new JMenuBar();
         JMenu menuCadastrar = new JMenu("Cadastrar");
         JMenu menuListar = new JMenu("Listar");
-        JMenu menuOutros = new JMenu("Outros");
+        JMenu menuOutros = new JMenu("Configurações");
 
         //Opção Cadastrar
         JMenuItem menuItemCadastrar = new JMenuItem("Cadastro de Livros");
@@ -53,7 +54,7 @@ public class JanelaPrincipal extends JFrame implements ActionListener {
         menuListar.add(menuItemListar);
 
         //Opção Configurações
-        JMenuItem menuItemConfiguracoes = new JMenuItem("Configuracões");
+        JMenuItem menuItemConfiguracoes = new JMenuItem("Trocar Banner");
         menuItemConfiguracoes.addActionListener(this);
         menuOutros.add(menuItemConfiguracoes);
 
@@ -74,6 +75,18 @@ public class JanelaPrincipal extends JFrame implements ActionListener {
             this.painelPrincipal.add(this.painelListagem);
             this.painelListagem.setVisible(true);
             this.painelCadastro.setVisible(false);
+        } else if (e.getActionCommand().equals("Trocar Banner")) {
+            JFileChooser file = new JFileChooser();
+            file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            file.showSaveDialog(null);
+
+            File novoBanner = file.getSelectedFile();
+
+
+                this.painelBanner.changeImage(novoBanner.getPath());
+                System.out.println(novoBanner.getPath());
+                JOptionPane.showMessageDialog(null, "Banner alterado com sucesso!");
+
         }
     }
 }

@@ -1,22 +1,24 @@
-qwe;qwe;qweqwewq;eqw;eqweqw;eqwew;qeqw;eqweqw;ewqewqe;weqwe
-qweqwe;qwe;qweqw;qweqwe;eqwe;qweq;qe;eqwewq;eqe;qwe
-qwewqe;qwe;qwqwewq;ewq;ewqe;ewewq;qeqw;ewqe;qeqe;qwe
-qwe;qweqw;eqweqweqweqw;eqwe;eqw;qweqwewqe;qwewq;eqwewq;eqwe;wqe
-qwe;qweqw;eqweqweqweqw;eqwe;eqw;qweqwewqe;qwewq;eqwewq;eqwe;wqe
-TESTE;qwewqeqweqwe;qweqweqweqwe;wqe;we;wqewq;eqwe;qewqewqewq;eqw;ewqe
-TESTE 2;;;;;;;;;
-TESTE 2;eqw;qwq;q;qqq;qqqq;q;qqq;qqq;q
-q;q;qq;q;q;q;q;q;q;q
-qwe;q;weqweqeq;;weqe;;;;;
-q;;;;;;;;;
-e;;;;;;;;;
-r;;;;;;;;;
-rqweqweqweqweqw;;;;;;;;;
-teste;;;;;;;;;
-O Menino do Pijama Listrado;Oliver Jeffers;1980;300;Companhia Das Letras;Português;1;Drama;Um menino com o pijama listrado;História
-;;;;;;;;;
-;;;;;;;;;
-;;;;;;;;;
-;;;;;;;;;
-;;;;;;;;;
-;;;;;;;;;
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;61018349308
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
