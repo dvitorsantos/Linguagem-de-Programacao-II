@@ -1,24 +1,23 @@
-1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;61018349308
-A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
-As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel
-1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel
-A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
-As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel
-1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel
-A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
-As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel
-1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel
-A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
-As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel
-1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel
-A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel
-As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
-Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;12345678900;2022-07-10
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel;Disponivel
+Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel;Disponivel
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel;Disponivel
+Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel;Disponivel
+Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel;Disponivel
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel;Disponivel
+Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel;Disponivel
+Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel;Disponivel
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel;Disponivel
+Carolina;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel;Disponivel
+Bases da Ortografia Portuguesa;Abreu, Guilherme de Vasconcelos; Viana, A. R. Gonçalves;;Project Gutenberg;Português;1;Literatura;Um homem que vivia...;Literatura;Disponivel;Disponivel
+1984;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Um homem que vivia...;Ficção;Disponivel;Disponivel
+A Revolução dos Bixos;George Orwell;1984;300;Companhia das Letras;Português;1;Ficção;Uma fazenda um tanto...;Ficção;Disponivel;Disponivel
+As Primaveras;Abreu, Casimiro de;;;Portal Domínio Público;Português;1;Literatura;Um homem que vivia...;Ficção;Disponivel;Disponivel
+livro teste;autor teste;2022;1;1;potuguês;1;categoria teste;descrição teste;gênero teste;Disponivel;Disponivel

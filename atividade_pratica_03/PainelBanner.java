@@ -3,8 +3,8 @@ import java.awt.*;
 import java.io.*;
 
 public class PainelBanner extends JPanel{
-    String imagePath;
-    JLabel bannerLabel;
+    private String imagePath;
+    private JLabel bannerLabel;
 
     public PainelBanner(String path) {
         try {

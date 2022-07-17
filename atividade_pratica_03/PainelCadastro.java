@@ -1,25 +1,22 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class PainelCadastro extends JPanel implements ActionListener {
 
-    JTextField textFieldTitulo;
-    JTextField textFieldAutor;
-    JTextField textFieldAno;
-    JTextField textFieldPaginas;
-    JTextField textFieldEditora;
-    JTextField textFieldIdioma;
-    JTextField textFieldEdicao;
-    JTextField textFieldCategoria;
-    JTextField textFieldDescricao;
-    JTextField textFieldGenero;
+    private JTextField textFieldTitulo;
+    private JTextField textFieldAutor;
+    private JTextField textFieldAno;
+    private JTextField textFieldPaginas;
+    private JTextField textFieldEditora;
+    private JTextField textFieldIdioma;
+    private JTextField textFieldEdicao;
+    private JTextField textFieldCategoria;
+    private JTextField textFieldDescricao;
+    private JTextField textFieldGenero;
     public PainelCadastro(int width, int height) {
         this.setSize(width, height);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -131,7 +128,6 @@ JPanel painelGenero = new JPanel();
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             } else {
                 try {
-                    System.out.println("Cadastrando...");
                     FileWriter fWriter = new FileWriter(
                             "C:\\Users\\Vitor\\IdeaProjects\\TerceiraAvaliacao\\src\\data\\livros.txt", true);
                     fWriter.write( "\n" +
@@ -145,7 +141,7 @@ JPanel painelGenero = new JPanel();
                             textFieldCategoria.getText() + ";" +
                             textFieldDescricao.getText() + ";" +
                             textFieldGenero.getText() + ";" +
-                            "Disponivel");
+                            "Disponivel;Disponivel");
                     fWriter.close();
                     JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
                 } catch (IOException ex) {

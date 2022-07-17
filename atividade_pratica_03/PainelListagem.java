@@ -5,20 +5,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class PainelListagem extends JPanel implements ActionListener {
-    DefaultTableModel tabelaModel;
-    JTable tabela;
+    private DefaultTableModel tabelaModel;
+    private JTable tabela;
 
-    JTextField filtroTitulo;
+    private JTextField filtroTitulo;
 
-    String column[]={"Titulo","Autor","Ano",
+    private double multa;
+    private String column[]={"Titulo","Autor","Ano",
                     "Paginas", "Editora", "Idioma"
-                    ,"Edicao", "Categoria", "Descricao", "Genero", "Alugado Por"};
+                    ,"Edicao", "Categoria", "Descricao", "Genero", "Alugado Por", "Alugado Até"};
 
-    public PainelListagem() {
+    public PainelListagem(double multa) {
+        this.multa = multa;
         this.setLayout(new BorderLayout());
 
         filtroTitulo = new JTextField();
@@ -40,6 +42,9 @@ public class PainelListagem extends JPanel implements ActionListener {
         JButton BotaoRemoverLivro = new JButton("Remover Livro");
         BotaoRemoverLivro.addActionListener(this);
 
+        JButton botaoPagarMulta = new JButton("Pagar multa");
+        botaoPagarMulta.addActionListener(this);
+
         JButton botaoDevolver = new JButton("Devolver");
         botaoDevolver.addActionListener(this);
 
@@ -47,6 +52,7 @@ public class PainelListagem extends JPanel implements ActionListener {
         botaoAlugar.addActionListener(this);
 
         painelSul.add(BotaoRemoverLivro);
+        painelSul.add(botaoPagarMulta);
         painelSul.add(botaoDevolver);
         painelSul.add(botaoAlugar);
 
@@ -56,27 +62,27 @@ public class PainelListagem extends JPanel implements ActionListener {
         JScrollPane scrollPane = new JScrollPane(tabela,
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setPreferredSize(new Dimension(1200, 350));
+        scrollPane.setPreferredSize(new Dimension(1400, 350));
 
         this.add(scrollPane, BorderLayout.CENTER);
     }
 
 
     public void loadTabela() {
-        System.out.println("Carregando tabela...");
         this.tabelaModel = new DefaultTableModel(column, 0);
         this.tabela = new JTable(this.tabelaModel);
 
         this.tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
         this.tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
         this.tabela.getColumnModel().getColumn(2).setPreferredWidth(40);
-        this.tabela.getColumnModel().getColumn(3).setPreferredWidth(100);
+        this.tabela.getColumnModel().getColumn(3).setPreferredWidth(40);
         this.tabela.getColumnModel().getColumn(4).setPreferredWidth(180);
         this.tabela.getColumnModel().getColumn(6).setPreferredWidth(80);
         this.tabela.getColumnModel().getColumn(7).setPreferredWidth(80);
         this.tabela.getColumnModel().getColumn(8).setPreferredWidth(200);
         this.tabela.getColumnModel().getColumn(9).setPreferredWidth(70);
         this.tabela.getColumnModel().getColumn(10).setPreferredWidth(100);
+        this.tabela.getColumnModel().getColumn(11).setPreferredWidth(80);
 
         try
         {
@@ -104,25 +110,36 @@ public class PainelListagem extends JPanel implements ActionListener {
         } else if (e.getActionCommand().equals("Alugar")) {
             int row = this.tabela.getSelectedRow();
 
+            if (!tabelaModel.getValueAt(row, 10).equals("Disponivel")) {
+                JOptionPane.showMessageDialog(this, "Livro não disponível para alugar!");
+                return;
+            }
+
             if (row != -1) {
                 JDialog dialog = new JDialog();
 
-                JLabel labelCpf = new JLabel("CPF:");
+                JLabel labelCpf = new JLabel("Cpf:");
                 TextField textFieldCpf = new TextField();
                 textFieldCpf.setPreferredSize(new Dimension(200, 25));
+                JLabel labelData = new JLabel("Devolver em:");
+                TextField textFieldData = new TextField();
+                textFieldData.setPreferredSize(new Dimension(150, 25));
                 JButton botaoConfirmar = new JButton("Confirmar");
                 botaoConfirmar.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (textFieldCpf.getText().equals("")) {
-                            JOptionPane.showMessageDialog(dialog, "Preencha o campo CPF");
+                        if (textFieldCpf.getText().equals("") || textFieldData.getText().equals("")) {
+                            JOptionPane.showMessageDialog(dialog, "Preencha todos os campos!");
                         }
                         dialog.dispose();
                     }
                 });
 
+                LocalDate dataDevolucao = LocalDate.now();
+                textFieldData.setText(dataDevolucao.plusDays(7).toString());
+
                 dialog.setTitle("Alugar Livro");
-                dialog.setSize(300, 120);
+                dialog.setSize(300, 200);
                 dialog.setLocationRelativeTo(null);
                 dialog.setModal(true);
                 dialog.setResizable(false);
@@ -131,13 +148,16 @@ public class PainelListagem extends JPanel implements ActionListener {
 
                 dialog.add(labelCpf);
                 dialog.add(textFieldCpf);
+                dialog.add(labelData);
+                dialog.add(textFieldData);
                 dialog.add(botaoConfirmar);
                 dialog.setVisible(true);
 
-                if (textFieldCpf.getText().equals("")) {
+                if (textFieldCpf.getText().equals("") ) {
                     return;
                 } else {
                     tabelaModel.setValueAt(textFieldCpf.getText(), row, 10);
+                    tabelaModel.setValueAt(textFieldData.getText(), row, 11);
                     this.saveTableData(tabela);
                 }
             } else {
@@ -150,12 +170,33 @@ public class PainelListagem extends JPanel implements ActionListener {
                 int resultPainelConfirmacao = JOptionPane.showConfirmDialog(this, "Deseja realmente devolver o livro?", "Devolver Livro", JOptionPane.YES_NO_OPTION);
 
                 if (resultPainelConfirmacao == JOptionPane.YES_OPTION) {
-                    tabelaModel.setValueAt("Disponivel", row, 10);
-                    this.saveTableData(tabela);
+                    LocalDate dataHoje = LocalDate.now();
+                    LocalDate dataDevolucao = LocalDate.parse(tabelaModel.getValueAt(row, 11).toString());
+                    if (dataHoje.isAfter(LocalDate.parse(tabelaModel.getValueAt(row, 11).toString()))) {
+                        int quantidadeDiasAtraso = Math.abs((int) ChronoUnit.DAYS.between(dataHoje, dataDevolucao));
+                        JOptionPane.showMessageDialog(this, "A data de devolução já passou! Deve ser pago uma multa de R$" + (quantidadeDiasAtraso * multa));
+                        return;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Livro devolvido sem multa cobrada.");
+                        tabelaModel.setValueAt("Disponivel", row, 10);
+                        tabelaModel.setValueAt("Disponivel", row, 11);
+                        this.saveTableData(tabela);
+                    }
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um livro para devolver!");
             }
+        } else if (e.getActionCommand().equals("Pagar multa")) {
+            int row = this.tabela.getSelectedRow();
+            if (row != -1) {
+                JOptionPane.showMessageDialog(null, "Multa paga e livro devolvido!");
+                tabelaModel.setValueAt("Disponivel", row, 10);
+                tabelaModel.setValueAt("Disponivel", row, 11);
+                this.saveTableData(tabela);
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um livro para pagar a multa!");
+            }
+
         } else  if (e.getActionCommand().equals("Remover Livro")) {
             int row = this.tabela.getSelectedRow();
 
@@ -194,5 +235,9 @@ public class PainelListagem extends JPanel implements ActionListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setMulta(double multa) {
+        this.multa = multa;
     }
 }
