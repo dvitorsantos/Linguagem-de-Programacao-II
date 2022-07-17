@@ -96,20 +96,34 @@ public class JanelaPrincipal extends JFrame implements ActionListener {
 
             File novoBanner = file.getSelectedFile();
 
-                this.painelBanner.changeImage(novoBanner.getPath());
-                JOptionPane.showMessageDialog(null, "Banner alterado com sucesso!");
+            if (novoBanner != null) {
+                try {
+                    this.painelBanner.changeImage(novoBanner.getPath());
+                    JOptionPane.showMessageDialog(null, "Banner alterado com sucesso!");
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro ao trocar o banner");
+                }
+            }
 
         } else if (e.getActionCommand().equals("Trocar Valor da Multa")) {
             String valor = JOptionPane.showInputDialog("Digite o valor da multa:");
 
-            this.multa = Double.parseDouble(valor);
-            this.painelListagem.setMulta(this.multa);
-            try {
-                FileWriter fWriter = new FileWriter("src/data/multa.txt");
-                fWriter.write(valor);
-                fWriter.close();
-            } catch (IOException exception) {
-                throw new RuntimeException(exception);
+            if (valor == null) {
+                return;
+            }
+
+            if (!valor.equals("")) {
+                try {
+                    this.multa = Double.parseDouble(valor);
+                    this.painelListagem.setMulta(this.multa);
+                    FileWriter fWriter = new FileWriter("src/data/multa.txt");
+                    fWriter.write(valor);
+                    fWriter.close();
+                } catch (IOException exception) {
+                    JOptionPane.showMessageDialog(null, "Erro ao alterar o valor da multa!");
+                } catch (NumberFormatException exception) {
+                    JOptionPane.showMessageDialog(null, "Valor da multa inválido!");
+                }
             }
         }
     }

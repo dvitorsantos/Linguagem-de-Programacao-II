@@ -145,7 +145,7 @@ JPanel painelGenero = new JPanel();
                     fWriter.close();
                     JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
                 } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar!");
                 }
             }
         }
