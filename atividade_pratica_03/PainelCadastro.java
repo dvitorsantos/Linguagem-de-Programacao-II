@@ -127,25 +127,30 @@ JPanel painelGenero = new JPanel();
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
         if (e.getActionCommand().equals("Cadastrar")) {
-            try {
-                System.out.println("Cadastrando...");
-                FileWriter fWriter = new FileWriter(
-                        "C:\\Users\\Vitor\\IdeaProjects\\TerceiraAvaliacao\\src\\data\\livros.txt", true);
-                fWriter.write("\n" +
-                        textFieldTitulo.getText() + ";" +
-                        textFieldAutor.getText() + ";" +
-                        textFieldAno.getText() + ";" +
-                        textFieldPaginas.getText() + ";" +
-                        textFieldEditora.getText() + ";" +
-                        textFieldIdioma.getText() + ";" +
-                        textFieldEdicao.getText() + ";" +
-                        textFieldCategoria.getText() + ";" +
-                        textFieldDescricao.getText() + ";" +
-                        textFieldGenero.getText());
-                fWriter.close();
-                JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
+            if (textFieldTitulo.getText().equals("") || textFieldAutor.getText().equals("") || textFieldAno.getText().equals("") || textFieldPaginas.getText().equals("") || textFieldEditora.getText().equals("") || textFieldIdioma.getText().equals("") || textFieldEdicao.getText().equals("") || textFieldCategoria.getText().equals("") || textFieldDescricao.getText().equals("") || textFieldGenero.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            } else {
+                try {
+                    System.out.println("Cadastrando...");
+                    FileWriter fWriter = new FileWriter(
+                            "C:\\Users\\Vitor\\IdeaProjects\\TerceiraAvaliacao\\src\\data\\livros.txt", true);
+                    fWriter.write( "\n" +
+                            textFieldTitulo.getText() + ";" +
+                            textFieldAutor.getText() + ";" +
+                            textFieldAno.getText() + ";" +
+                            textFieldPaginas.getText() + ";" +
+                            textFieldEditora.getText() + ";" +
+                            textFieldIdioma.getText() + ";" +
+                            textFieldEdicao.getText() + ";" +
+                            textFieldCategoria.getText() + ";" +
+                            textFieldDescricao.getText() + ";" +
+                            textFieldGenero.getText() + ";" +
+                            "Disponivel");
+                    fWriter.close();
+                    JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         }
     }
