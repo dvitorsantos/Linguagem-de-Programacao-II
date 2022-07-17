@@ -1,1 +1,1 @@
-C:\Users\Vitor\Desktop\Library-Maj-Dkt.jpg
+src/images/banner.jpg
