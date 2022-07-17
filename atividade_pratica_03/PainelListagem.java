@@ -174,7 +174,8 @@ public class PainelListagem extends JPanel implements ActionListener {
                     LocalDate dataDevolucao = LocalDate.parse(tabelaModel.getValueAt(row, 11).toString());
                     if (dataHoje.isAfter(LocalDate.parse(tabelaModel.getValueAt(row, 11).toString()))) {
                         int quantidadeDiasAtraso = Math.abs((int) ChronoUnit.DAYS.between(dataHoje, dataDevolucao));
-                        JOptionPane.showMessageDialog(this, "A data de devolução já passou! Deve ser pago uma multa de R$" + (quantidadeDiasAtraso * multa));
+                        JOptionPane.showMessageDialog(this, "A data de devolução já passou! Deve ser pago uma multa de R$" +
+                                String.format("%,.2f", quantidadeDiasAtraso * multa));
                         return;
                     } else {
                         JOptionPane.showMessageDialog(null, "Livro devolvido sem multa cobrada.");
