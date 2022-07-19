@@ -1,1 +1,1 @@
-C:\Users\Vitor\Desktop\446cda62-69a6-4498-80a4-443cba0f5dd4.jpg
+./src/images/banner.jpg

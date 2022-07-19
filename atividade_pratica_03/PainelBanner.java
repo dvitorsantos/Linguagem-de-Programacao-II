@@ -36,7 +36,7 @@ public class PainelBanner extends JPanel{
                 this.imagePath = path;
                 this.bannerLabel.setIcon(new ImageIcon(this.imagePath));
                 try {
-                    FileWriter fWriter = new FileWriter("src/data/banner.txt");
+                    FileWriter fWriter = new FileWriter("./src/data/banner.txt");
                     fWriter.write(path);
                     fWriter.close();
                 } catch (IOException e) {

@@ -30,7 +30,7 @@ public class JanelaPrincipal extends JFrame implements ActionListener {
 
         this.painelPrincipal = new JPanel();
 
-        this.painelBanner = new PainelBanner("src/images/banner.jpg");
+        this.painelBanner = new PainelBanner("./src/images/banner.jpg");
         this.painelCadastro = new PainelCadastro(100, 50);
         this.painelListagem = new PainelListagem(multa);
 
@@ -116,7 +116,7 @@ public class JanelaPrincipal extends JFrame implements ActionListener {
                 try {
                     this.multa = Double.parseDouble(valor);
                     this.painelListagem.setMulta(this.multa);
-                    FileWriter fWriter = new FileWriter("src/data/multa.txt");
+                    FileWriter fWriter = new FileWriter("./src/data/multa.txt");
                     fWriter.write(valor);
                     fWriter.close();
                 } catch (IOException exception) {

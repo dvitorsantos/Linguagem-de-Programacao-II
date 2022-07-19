@@ -129,7 +129,7 @@ JPanel painelGenero = new JPanel();
             } else {
                 try {
                     FileWriter fWriter = new FileWriter(
-                            "C:\\Users\\Vitor\\IdeaProjects\\TerceiraAvaliacao\\src\\data\\livros.txt", true);
+                            "./src/data/livros.txt", true);
                     fWriter.write( "\n" +
                             textFieldTitulo.getText() + ";" +
                             textFieldAutor.getText() + ";" +
